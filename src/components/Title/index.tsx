@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
 
 type TitleProps = {
-  text: string;
-};
-
-function Title({ text }: TitleProps) {
-  return <h1>{text}</h1>;
+  text: string
 }
 
-export default Title;
+function Title({ text }: TitleProps) {
+  return <h1>{text}</h1>
+}
+
+export default Title
