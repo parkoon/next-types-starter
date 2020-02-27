@@ -1,5 +1,7 @@
+import Title from "@components/Title";
+
 function HomePage() {
-  return <h1>Welcome to next js world</h1>;
+  return <Title text="Welcome to next js world" />;
 }
 
 export default HomePage;
