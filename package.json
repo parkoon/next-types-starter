@@ -11,7 +11,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-add": "npm run tslint"
+      "pre-commit": "npm run tslint"
     }
   },
   "keywords": [],
