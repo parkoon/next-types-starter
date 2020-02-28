@@ -42,8 +42,6 @@ export default class MyDocument extends Document {
           <meta property="og:url" content={`${process.env.BASE_URL}`} />
           <meta property="og:type" content="website" />
           <meta property="og:description" content="describe your site here." />
-          {/* Step 5: Output the styles in the head  */}
-          {this.props.styleTags}
         </Head>
         <body>
           <Main />
