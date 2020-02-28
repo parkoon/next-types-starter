@@ -1,10 +1,11 @@
-import Title from '@components/Title'
-import { useState, useCallback, useEffect } from 'react'
+import GithubField from '@/components/ui/organism/GithubField'
 
 function HomePage() {
-  const [state, setstate] = useState()
-
-  return <Title text="Welcome to next js world" />
+  return (
+    <>
+      <GithubField />
+    </>
+  )
 }
 
 export default HomePage
