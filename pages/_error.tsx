@@ -17,7 +17,7 @@ function Error({ statusCode }: ErrorProps) {
   return <>{getResponse(statusCode)}</>
 }
 
-Error.getInitialProps = ({ res, err }) => {
+Error.getInitialProps = ({ res, err }: any) => {
   const statusCode = res ? res.statusCode : err ? err.statusCode : null
   return { statusCode }
 }
