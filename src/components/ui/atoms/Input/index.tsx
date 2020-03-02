@@ -3,6 +3,8 @@ import styled from 'styled-components'
 
 export type InputProps = {
   placeholder: string
+  value: any
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 const StyledInput = styled.input`

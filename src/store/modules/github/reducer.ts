@@ -23,7 +23,7 @@ const github = createReducer<GithubState, GithubAction>(intialState, {
     ...state,
     userProfile: {
       data: action.payload,
-      loading: true,
+      loading: false,
       error: null,
     },
   }),

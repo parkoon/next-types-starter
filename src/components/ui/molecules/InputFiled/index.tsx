@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, ChangeEvent } from 'react'
 import styled from 'styled-components'
 
 import Input, { InputProps } from '@components/ui/atoms/Input'
@@ -6,17 +6,27 @@ import Button, { ButtonProps } from '@components/ui/atoms/Button'
 
 const StyledInputField = styled.div``
 
-function InputField() {
+type InputFieldProps = {
+  onSearch: (username: string) => void
+}
+
+function InputField({ onSearch }: InputFieldProps) {
+  const [value, setValue] = useState('')
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value)
+  }
+
+  const handleClick = () => {
+    if (!value) return
+
+    onSearch(value)
+  }
+
   return (
     <StyledInputField>
-      <Input placeholder="github name..." />
-      <Button
-        onClick={() => {
-          alert('button clicked')
-        }}
-      >
-        입력
-      </Button>
+      <Input onChange={handleChange} value={value} placeholder="github name..." />
+      <Button onClick={handleClick}>입력</Button>
     </StyledInputField>
   )
 }

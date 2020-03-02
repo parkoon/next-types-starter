@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import InputField from '../../molecules/InputFiled'
 import ProfileField from '../../molecules/ProfileField'
+import { fetchUserInfoDto } from '@/store/modules/github/api/dto'
 
 const GithubWrapper = styled.div`
   max-width: 1200px;
@@ -10,11 +11,16 @@ const GithubWrapper = styled.div`
   text-align: center;
 `
 
-function GithubField() {
+type GithubFieldProps = {
+  onSearch: (username: string) => void
+  info: fetchUserInfoDto | null
+}
+
+function GithubField({ onSearch, info }: GithubFieldProps) {
   return (
     <GithubWrapper>
-      <InputField />
-      <ProfileField />
+      <InputField onSearch={onSearch} />
+      {info && <ProfileField bio={info.bio} avatar={info.avatar_url} />}
     </GithubWrapper>
   )
 }

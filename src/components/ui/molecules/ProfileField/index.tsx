@@ -7,11 +7,16 @@ const StyledProfileField = styled.div`
   margin-top: 20px;
 `
 
-function ProfileField() {
+type ProfileFiledProps = {
+  bio: string
+  avatar: string
+}
+
+function ProfileField({ avatar, bio }: ProfileFiledProps) {
   return (
     <StyledProfileField>
-      <Avatar src="https://www.nicepng.com/png/detail/186-1866063_dicks-out-for-harambe-sample-avatar.png" />
-      <Text content="hello world" />
+      <Avatar src={avatar} />
+      <Text content={bio} />
     </StyledProfileField>
   )
 }
