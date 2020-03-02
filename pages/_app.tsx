@@ -1,15 +1,20 @@
-import { AppContext, AppInitialProps } from 'next/app'
+import { Provider } from 'react-redux'
+import reduxWrapper from 'next-redux-wrapper'
+import configureStore from '@/store/configureStore'
+import { InitialAppProps } from '@/interfaces/InitialProps'
+import withReduxSaga from 'next-redux-saga'
 
-type AppProps = AppContext & AppInitialProps & {}
-function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps, store }: InitialAppProps) {
   return (
     <>
-      <Component {...pageProps} />
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
     </>
   )
 }
 
-App.getInitialProps = async ({ Component, ctx }: AppContext) => {
+App.getInitialProps = async ({ Component, ctx }: InitialAppProps) => {
   let pageProps = {}
 
   if (Component.getInitialProps) {
@@ -19,4 +24,4 @@ App.getInitialProps = async ({ Component, ctx }: AppContext) => {
   return { pageProps }
 }
 
-export default App
+export default reduxWrapper(configureStore)(withReduxSaga(App))
